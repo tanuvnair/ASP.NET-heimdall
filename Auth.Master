@@ -10,15 +10,43 @@
     <link href="Content/bootstrap-icons.min.css" rel="stylesheet" />
 </head>
 
-<body class="auth-body">
-    <asp:ContentPlaceHolder ID="LoginPlaceHolder" runat="server">
-    </asp:ContentPlaceHolder>
+<body class="min-vh-100 bg-black vh-100">
+    <section class="container vh-100 d-flex flex-column justify-content-center">
+        <div class="row">
+            <div class="col-sm-6 d-flex align-items-center justify-content-center">
+                <img src="Assets/heimdall-300x300-transparent.png" />
+            </div>
+            <div class="col-sm-6">
+                <div class="card bg-black text-bg-dark">
+                    <div class="card-body p-5">
+                        <h1 class="fw-bold">Welcome to Heimdall</h1>
 
-    <asp:ContentPlaceHolder ID="SignUpPlaceHolder" runat="server">
-    </asp:ContentPlaceHolder>
+                        <form action="/" method="post" runat="server">
+                            <asp:ContentPlaceHolder ID="signInPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+
+                            <asp:ContentPlaceHolder ID="signUpPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/8b835e0cdc.js" crossorigin="anonymous"></script>
+    <script>
+        $("#signUpLink").on('click', function () {
+            $("#signUp").removeClass('d-none').hide().fadeIn();
+            $("#signIn").addClass('d-none');
+        })
+
+        $("#signInLink").on('click', function () {
+            $("#signIn").removeClass('d-none').hide().fadeIn();
+            $("#signUp").addClass('d-none');
+        })
+    </script>
 </body>
 </html>

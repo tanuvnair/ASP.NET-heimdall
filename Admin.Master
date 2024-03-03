@@ -5,7 +5,7 @@
 <html>
 
 <head runat="server">
-    <title>Master Page</title>
+    <title>Admin Master Page</title>
     <link href="Content/style.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-icons.min.css" rel="stylesheet" />
@@ -41,7 +41,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-fw fa-solid fa-user me-1"></i><asp:Label ID="username_label" runat="server" Text="Profile"></asp:Label>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+                            <li><a class="dropdown-item" href="Default.aspx">Sign Out</a></li>
                         </ul>
                     </li>
                 </ul>

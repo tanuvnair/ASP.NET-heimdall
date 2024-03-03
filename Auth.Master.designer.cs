@@ -15,21 +15,21 @@ namespace ASP.NET_heimdall
     {
 
         /// <summary>
-        /// LoginPlaceHolder control.
+        /// signInPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder LoginPlaceHolder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder signInPlaceHolder;
 
         /// <summary>
-        /// SignUpPlaceHolder control.
+        /// signUpPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder SignUpPlaceHolder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder signUpPlaceHolder;
     }
 }
