@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ASP.NET_heimdall.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    <title>Master Page</title>
+    <link href="Content/style.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-icons.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body class="body">
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav">
+            <div class="logo">
+                <img src="Assets/heimdall-1000x1000-transparent.png" class="ms-3" alt="Logo" width="125" />
+            </div>
+
+            <ul class="list-unstyled px-2 d-flex flex-column justify-content-evenly">
+                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-house gap"></i>Dashboard</a></li>
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-clipboard-user"></i>Attendance</a></li>
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-lock"></i>Permissions</a></li>
+            </ul>
+
+            <hr class="h-color mx-2" />
+
+            <ul class="list-unstyled px-2">
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear"></i>Settings</a></li>
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-bell"></i>Notifications</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <header class="navbar-light bg-light">
+                <ul class="navbar-nav">
+                    <li class="dropleft">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+        </div>
+    </div>
+
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8b835e0cdc.js" crossorigin="anonymous"></script>
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+        })
+    </script>
+</body>
+</html>
