@@ -11,25 +11,25 @@ namespace ASP.NET_heimdall
 {
 
 
-    public partial class Site
+    public partial class Auth
     {
 
         /// <summary>
-        /// head control.
+        /// LoginPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder LoginPlaceHolder;
 
         /// <summary>
-        /// username_label control.
+        /// SignUpPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label username_label;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder SignUpPlaceHolder;
     }
 }

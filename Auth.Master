@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Auth.master.cs" Inherits="ASP.NET_heimdall.Auth" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Content/style.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-icons.min.css" rel="stylesheet" />
+</head>
+
+<body class="auth-body">
+    <asp:ContentPlaceHolder ID="LoginPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <asp:ContentPlaceHolder ID="SignUpPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8b835e0cdc.js" crossorigin="anonymous"></script>
+</body>
+</html>

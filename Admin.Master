@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ASP.NET_heimdall.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="ASP.NET_heimdall.Site" %>
 
 <!DOCTYPE html>
 
@@ -41,12 +41,12 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-fw fa-solid fa-user me-1"></i><asp:Label ID="username_label" runat="server" Text="Profile"></asp:Label>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="#">Sign Out</a></li>
                         </ul>
                     </li>
                 </ul>
+
+                <asp:ContentPlaceHolder ID="body_content" runat="server"></asp:ContentPlaceHolder>
             </header>
         </div>
     </div>

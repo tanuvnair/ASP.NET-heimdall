@@ -7,6 +7,13 @@
     scroll-behavior: smooth;
 }
 
+/* Login CSS */
+.auth-body {
+    background: url('/Assets/login-register-background.svg') center center no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
 #side_nav {
     background-color: black;
     min-width: 250px;
