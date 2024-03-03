@@ -11,7 +11,6 @@ namespace ASP.NET_heimdall
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

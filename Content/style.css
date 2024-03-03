@@ -22,22 +22,30 @@ hr.h-color {
     background-color: #eee;
 }
 
+.sidebar li a {
+    color: #fff;
+}
+
+.sidebar li:hover {
+    background: #eee;
+    border-radius: 8px;
+    transition: all 0.3s ease 0s;
+}
+
+.sidebar li a:hover {
+    color: #000;
+    transition: all 0.3s ease 0s;
+}
+
 .sidebar li.active {
     background: #eee;
     border-radius: 8px;
 }
 
     .sidebar li.active a {
+        transition: top 0.3s ease 0s;
         color: #000;
     }
-
-        .sidebar li.active.a, .sidebar li.active a:hover {
-            color: #000;
-        }
-
-.sidebar li a {
-    color: #fff;
-}
 
 header {
     width: 100%;

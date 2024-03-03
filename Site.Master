@@ -21,16 +21,16 @@
             </div>
 
             <ul class="list-unstyled px-2 d-flex flex-column justify-content-evenly">
-                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-house gap"></i>Dashboard</a></li>
-                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-clipboard-user"></i>Attendance</a></li>
-                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-lock"></i>Permissions</a></li>
+                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-house me-2"></i>Dashboard</a></li>
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-clipboard-user me-2"></i>Attendance</a></li>
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-lock me-2"></i>Permissions</a></li>
             </ul>
 
             <hr class="h-color mx-2" />
 
             <ul class="list-unstyled px-2">
-                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear"></i>Settings</a></li>
-                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-bell"></i>Notifications</a></li>
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-gear me-2"></i>Settings</a></li>
+                <li><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-bell me-2"></i>Notifications</a></li>
             </ul>
         </div>
 
@@ -38,7 +38,7 @@
             <header class="navbar-light bg-light">
                 <ul class="navbar-nav">
                     <li class="dropleft">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-fw fa-solid fa-user me-1"></i><asp:Label ID="username_label" runat="server" Text="Profile"></asp:Label>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">Action</a></li>
