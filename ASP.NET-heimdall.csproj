@@ -67,6 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\HeimdallSQLDatabase.mdf" />
+    <Content Include="App_Data\HeimdallSQLDatabase_log.ldf">
+      <DependentUpon>HeimdallSQLDatabase.mdf</DependentUpon>
+    </Content>
     <Content Include="Assets\heimdall-1000x1000-transparent.png" />
     <Content Include="Assets\heimdall-300x300-transparent.png" />
     <Content Include="Assets\login-register-background.svg" />
