@@ -21,7 +21,7 @@
                     <div class="card-body p-5">
                         <h1 class="fw-bold">Welcome to Heimdall</h1>
 
-                        <form action="/" method="post" runat="server">
+                        <form runat="server">
                             <asp:ContentPlaceHolder ID="signInPlaceHolder" runat="server">
                             </asp:ContentPlaceHolder>
 

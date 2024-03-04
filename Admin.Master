@@ -38,7 +38,8 @@
             <header class="navbar-light bg-light">
                 <ul class="navbar-nav">
                     <li class="dropleft">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-fw fa-solid fa-user me-1"></i><asp:Label ID="username_label" runat="server" Text="Profile"></asp:Label>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-fw fa-solid fa-user me-1"></i>
+                            <asp:Label ID="username_label" runat="server" Text="Profile"></asp:Label>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="Default.aspx">Sign Out</a></li>
@@ -46,8 +47,9 @@
                     </li>
                 </ul>
 
-                <asp:ContentPlaceHolder ID="body_content" runat="server"></asp:ContentPlaceHolder>
             </header>
+
+            <asp:ContentPlaceHolder ID="bodyContent" runat="server"></asp:ContentPlaceHolder>
         </div>
     </div>
 
