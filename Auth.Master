@@ -20,14 +20,11 @@
                 <div class="card bg-black text-bg-dark">
                     <div class="card-body p-5">
                         <h1 class="fw-bold">Welcome to Heimdall</h1>
+                        <asp:ContentPlaceHolder ID="signInPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
 
-                        <form runat="server">
-                            <asp:ContentPlaceHolder ID="signInPlaceHolder" runat="server">
-                            </asp:ContentPlaceHolder>
-
-                            <asp:ContentPlaceHolder ID="signUpPlaceHolder" runat="server">
-                            </asp:ContentPlaceHolder>
-                        </form>
+                        <asp:ContentPlaceHolder ID="signUpPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
                     </div>
                 </div>
             </div>
@@ -37,16 +34,5 @@
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/8b835e0cdc.js" crossorigin="anonymous"></script>
-    <script>
-        $("#signUpLink").on('click', function () {
-            $("#signUp").removeClass('d-none').hide().fadeIn();
-            $("#signIn").addClass('d-none');
-        })
-
-        $("#signInLink").on('click', function () {
-            $("#signIn").removeClass('d-none').hide().fadeIn();
-            $("#signUp").addClass('d-none');
-        })
-    </script>
 </body>
 </html>

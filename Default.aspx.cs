@@ -1,28 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Configuration;
-using System.Data;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace ASP.NET_heimdall
 {
     public partial class Default : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+        //SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            //connection.Open();
         }
 
-        protected void SignIn(object sender, EventArgs e)
+        protected void SignInButtonClick(object sender, EventArgs e)
         {
-        }
+            string username = signInUsername.Text;
+            string password = signInPassword.Text;
 
-        protected void SignUp(object sender, EventArgs e)
-        {
+            Response.Redirect("Dashboard.aspx");
         }
     }
 }
