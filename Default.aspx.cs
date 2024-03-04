@@ -15,17 +15,14 @@ namespace ASP.NET_heimdall
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            con.Open();
         }
 
         protected void SignIn(object sender, EventArgs e)
         {
-
         }
 
         protected void SignUp(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -54,3 +54,7 @@ header {
     padding: 2% 3%;
     transition: top 0.3s ease 0s;
 }
+
+.errors-card {
+    transition: top 0.3s ease 0s;
+}

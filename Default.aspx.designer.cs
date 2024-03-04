@@ -24,6 +24,15 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.TextBox signInUsername;
 
         /// <summary>
+        /// signInRequiredUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator signInRequiredUsername;
+
+        /// <summary>
         /// signInPassword control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace ASP.NET_heimdall
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox signInPassword;
+
+        /// <summary>
+        /// signInRequiredPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator signInRequiredPassword;
 
         /// <summary>
         /// signUpUsername control.
@@ -42,13 +60,13 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.TextBox signUpUsername;
 
         /// <summary>
-        /// RequiredUsername control.
+        /// signUpRequiredUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredUsername;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator signUpRequiredUsername;
 
         /// <summary>
         /// signUpEmail control.
@@ -60,6 +78,24 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.TextBox signUpEmail;
 
         /// <summary>
+        /// signUpRequiredEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator signUpRequiredEmail;
+
+        /// <summary>
+        /// RegularExpressionEmailValidation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionEmailValidation;
+
+        /// <summary>
         /// signUpPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -67,6 +103,24 @@ namespace ASP.NET_heimdall
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox signUpPhoneNumber;
+
+        /// <summary>
+        /// signUpRequiredPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator signUpRequiredPhoneNumber;
+
+        /// <summary>
+        /// RegularExpressionPhoneValidation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionPhoneValidation;
 
         /// <summary>
         /// signUpPassword control.
@@ -78,6 +132,15 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.TextBox signUpPassword;
 
         /// <summary>
+        /// signUpRequiredPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator signUpRequiredPassword;
+
+        /// <summary>
         /// signUpConfirmPassword control.
         /// </summary>
         /// <remarks>
@@ -85,5 +148,14 @@ namespace ASP.NET_heimdall
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox signUpConfirmPassword;
+
+        /// <summary>
+        /// ComparePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator ComparePassword;
     }
 }
