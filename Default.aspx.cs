@@ -24,6 +24,9 @@ namespace ASP.NET_heimdall
             string password = signInPassword.Text;
             string savedPasswordHash = null;
 
+            signInUsername.Text = "";
+            signInPassword.Text = "";
+
             string query = @"SELECT Password FROM Users WHERE Username = @Username";
 
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -39,9 +42,6 @@ namespace ASP.NET_heimdall
 
             var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
             byte[] hash = pbkdf2.GetBytes(20);
-
-            signInUsername.Text = "";
-            signInPassword.Text = "";
 
             for (int i = 0; i < 20; i++)
                 if (hashBytes[i + 16] != hash[i])

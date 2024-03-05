@@ -22,7 +22,7 @@ namespace ASP.NET_heimdall
         {
             string host = @"https://localhost:44390/";
             string fromEmail = "rajnimurali@yahoo.com";
-            string subject = "Heimdall: Email verification";
+            string subject = "Heimdall: Email Verification";
             string body = $"Please click the following link to verify your email: <a href='{host}VerifyEmail.aspx?token={verificationToken}'>Verify Email</a>";
 
             MailMessage message = new MailMessage(fromEmail, email, subject, body);
@@ -40,6 +40,12 @@ namespace ASP.NET_heimdall
             string password = signUpPassword.Text;
             string role = "member";
             DateTime createdAt = DateTime.Now;
+
+            signUpUsername.Text = "";
+            signUpEmail.Text = "";
+            signUpPhoneNumber.Text = "";
+            signUpPassword.Text = "";
+            signUpConfirmPassword.Text = "";
 
             byte[] salt;
             new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
@@ -68,12 +74,6 @@ namespace ASP.NET_heimdall
 
                 command.ExecuteNonQuery();
                 connection.Close();
-
-                signUpUsername.Text = "";
-                signUpEmail.Text = "";
-                signUpPhoneNumber.Text = "";
-                signUpPassword.Text = "";
-                signUpConfirmPassword.Text = "";
             }
 
             SendVerificationEmail(email, verificationToken);
