@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="ASP.NET_heimdall.SignUp" MasterPageFile="~/Auth.Master" %>
 
 <asp:Content ContentPlaceHolderID="signUpPlaceHolder" runat="server">
-    <form action="/" method="post" runat="server">
+    <form id="form1" runat="server">
         <%--Sign Up--%>
         <div id="signUp" class="">
             <h3 class="mt-5 mb-4">Sign Up</h3>
@@ -58,11 +58,8 @@
                 <asp:CompareValidator class="text-danger" ID="ComparePassword" runat="server" ErrorMessage="*Passwords do not match." ControlToValidate="signUpPassword" ControlToCompare="signUpConfirmPassword" Display="Dynamic"></asp:CompareValidator>
             </div>
 
-
-            <asp:Button ID="SignUpButton" CssClass="btn btn-outline-light mt-3 px-4 py-2" runat="server" Text="Sign Up" OnClick="SignUpButtonClick"></asp:Button>
-
-
-            <h6 class="d-flex mt-4">Already have an account?<a href="Default.aspx" class="ms-2 text-decoration-none" id="signInLink">Sign In</a></h6>
+            <h6 class="d-flex mt-4">Already have an accou<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+                nt?<a href="Default.aspx" class="ms-2 text-decoration-none" id="signInLink">Sign In</a></h6>
         </div>
     </form>
 </asp:Content>

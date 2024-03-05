@@ -15,6 +15,15 @@ namespace ASP.NET_heimdall
     {
 
         /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// signUpUsername control.
         /// </summary>
         /// <remarks>
@@ -123,12 +132,12 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.CompareValidator ComparePassword;
 
         /// <summary>
-        /// SignUpButton control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SignUpButton;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
