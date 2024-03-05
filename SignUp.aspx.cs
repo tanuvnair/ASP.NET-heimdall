@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace ASP.NET_heimdall
 {
     public partial class SignUp : System.Web.UI.Page
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\projects\heimdall\ASP.NET-heimdall\App_Data\Heimdall.mdf;Integrated Security=True");
+        // Laptop
+        // SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\projects\heimdall\ASP.NET-heimdall\App_Data\Heimdall.mdf;Integrated Security=True");
+
+        // PC
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\projects\algorisys-internship\heimdall\ASP.NET-heimdall\App_Data\Heimdall.mdf;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -14,64 +19,45 @@ namespace ASP.NET_heimdall
 
         protected void SignUpButtonClick(object sender, EventArgs e)
         {
-            Response.Write("hello");
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Write("hello");
             string username = signUpUsername.Text;
             string email = signUpEmail.Text;
             string phoneNumber = signUpPhoneNumber.Text;
+            string password = signUpPassword.Text;
             string role = "member";
             DateTime createdAt = DateTime.Now;
 
-            //Hash password tomorrow pls
-            string password = signUpPassword.Text;
+            byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
 
-            string query = "INSERT INTO Users (Username, Email, PhoneNumber, Password, Role, CreatedAt) VALUES (@Username, @Email, @PhoneNumber, @Password, @Role, @CreatedAt)";
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
+            byte[] hash = pbkdf2.GetBytes(20);
 
-            SqlCommand command = new SqlCommand(query, connection);
+            byte[] hashBytes = new byte[36];    
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
 
+            string savedPasswordHash = Convert.ToBase64String(hashBytes);
 
-            command.Parameters.AddWithValue("@Username", username);
-            command.Parameters.AddWithValue("@Email", email);
-            command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-            command.Parameters.AddWithValue("@Password", password);
-            command.Parameters.AddWithValue("@Role", role);
-            command.Parameters.AddWithValue("@CreatedAt", createdAt);
+            string query = @"INSERT INTO Users (Username, Email, PhoneNumber, Password, Role, CreatedAt) VALUES (@Username, @Email, @PhoneNumber, @Password, @Role, @CreatedAt)";
 
-            command.ExecuteNonQuery();
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                command.Parameters.AddWithValue("@Password", savedPasswordHash);
+                command.Parameters.AddWithValue("@Role", role);
+                command.Parameters.AddWithValue("@CreatedAt", createdAt);
 
-            Response.Write("<h1>TESTING</h1>");
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                signUpUsername.Text = "";
+                signUpEmail.Text = "";
+                signUpPhoneNumber.Text = "";
+                signUpPassword.Text = "";
+                signUpConfirmPassword.Text = "";
+            }
         }
-
-        //protected void SignUpButtonClick(object sender, EventArgs e)
-        //{
-        //    //string username = signUpUsername.Text;
-        //    //string email = signUpEmail.Text;
-        //    //string phoneNumber = signUpPhoneNumber.Text;
-        //    //string role = "member";
-        //    //DateTime createdAt = DateTime.Now;
-
-        //    //// Hash password tomorrow pls
-        //    //string password = signUpPassword.Text;
-
-        //    //string query = "INSERT INTO Users (Username, Email, PhoneNumber, Password, Role, CreatedAt) VALUES (@Username, @Email, @PhoneNumber, @Password, @Role, @CreatedAt)";
-
-        //    //SqlCommand command = new SqlCommand(query, connection);
-
-
-        //    //command.Parameters.AddWithValue("@Username", username);
-        //    //command.Parameters.AddWithValue("@Email", email);
-        //    //command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-        //    //command.Parameters.AddWithValue("@Password", password);
-        //    //command.Parameters.AddWithValue("@Role", role);
-        //    //command.Parameters.AddWithValue("@CreatedAt", createdAt);
-
-        //    //command.ExecuteNonQuery();    
-
-        //    Response.Write("<h1>TESTING</h1>");
-        //}
     }
 }
