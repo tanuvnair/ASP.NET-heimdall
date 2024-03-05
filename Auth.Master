@@ -8,23 +8,25 @@
     <link href="Content/style.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-icons.min.css" rel="stylesheet" />
+    <link runat="server" rel="icon" href="Assets/heimdall-300x300-transparent.png" type="image/ico"/>
 </head>
 
 <body class="min-vh-100 bg-black vh-100">
     <section class="container vh-100 d-flex flex-column justify-content-center">
         <div class="row">
             <div class="col-sm-6 d-flex align-items-center justify-content-center">
-                <img src="Assets/heimdall-300x300-transparent.png" />
+                <img src="Assets/heimdall-1000x1000-transparent.png" class="w-75"/>
             </div>
             <div class="col-sm-6">
                 <div class="card bg-black text-bg-dark">
                     <div class="card-body p-5">
-                        <h1 class="fw-bold">Welcome to Heimdall</h1>
                         <asp:ContentPlaceHolder ID="signInPlaceHolder" runat="server">
                         </asp:ContentPlaceHolder>
 
                         <asp:ContentPlaceHolder ID="signUpPlaceHolder" runat="server">
                         </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder ID="VerificationPlaceholder" runat="server"></asp:ContentPlaceHolder>
                     </div>
                 </div>
             </div>

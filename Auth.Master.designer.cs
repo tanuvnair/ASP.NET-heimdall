@@ -31,5 +31,14 @@ namespace ASP.NET_heimdall
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder signUpPlaceHolder;
+
+        /// <summary>
+        /// VerificationPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder VerificationPlaceholder;
     }
 }

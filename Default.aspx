@@ -4,7 +4,7 @@
     <form action="/" method="post" runat="server">
         <%--Signin form--%>
         <div id="signIn" class="">
-            <h3 class="mt-5 mb-4 d-none">Sign In</h3>
+            <h1 class="fw-bold mt-5 mb-4">Sign In</h1>
 
             <div class="d-flex justify-content-center align-items-center gap-3">
                 <i class="fa-fw fa-solid fa-user"></i>

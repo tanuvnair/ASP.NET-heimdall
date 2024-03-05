@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="ASP.NET_heimdall.SignUp" MasterPageFile="~/Auth.Master" %>
+﻿<%@ Page Title="Sign Up" Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="ASP.NET_heimdall.SignUp" MasterPageFile="~/Auth.Master" %>
 
 <asp:Content ContentPlaceHolderID="signUpPlaceHolder" runat="server">
     <form id="form1" runat="server">
         <%--Sign Up--%>
         <div id="signUp" class="">
-            <h3 class="mt-5 mb-4">Sign Up</h3>
+            <h1 class="fw-bold mt-5 mb-4">Sign Up</h1>
 
             <div class="d-flex justify-content-center align-items-center gap-3">
                 <i class="fa-fw fa-solid fa-user"></i>
 
-                <asp:TextBox ID="signUpUsername" runat="server" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Username" required="true"></asp:TextBox>
+                <asp:TextBox ID="signUpUsername" runat="server" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Username"></asp:TextBox>
             </div>
             <div class="ms-5">
                 <asp:RequiredFieldValidator CssClass="card-text text-danger" ID="signUpRequiredUsername" runat="server" ErrorMessage="*The username field is required." ControlToValidate="signUpUsername" Display="Dynamic"></asp:RequiredFieldValidator>

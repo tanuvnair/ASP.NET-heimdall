@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
+using System.Net.Mail;
 
 namespace ASP.NET_heimdall
 {
@@ -15,6 +16,20 @@ namespace ASP.NET_heimdall
         protected void Page_Load(object sender, EventArgs e)
         {
             connection.Open();
+        }
+
+        protected void SendVerificationEmail(string email, string verificationToken)
+        {
+            string host = @"https://localhost:44390/";
+            string fromEmail = "rajnimurali@yahoo.com";
+            string subject = "Heimdall: Email verification";
+            string body = $"Please click the following link to verify your email: <a href='{host}VerifyEmail.aspx?token={verificationToken}'>Verify Email</a>";
+
+            MailMessage message = new MailMessage(fromEmail, email, subject, body);
+            message.IsBodyHtml = true;
+
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.Send(message);
         }
 
         protected void SignUpButtonClick(object sender, EventArgs e)
@@ -32,18 +47,20 @@ namespace ASP.NET_heimdall
             var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
             byte[] hash = pbkdf2.GetBytes(20);
 
-            byte[] hashBytes = new byte[36];    
+            byte[] hashBytes = new byte[36];
             Array.Copy(salt, 0, hashBytes, 0, 16);
             Array.Copy(hash, 0, hashBytes, 16, 20);
 
             string savedPasswordHash = Convert.ToBase64String(hashBytes);
+            string verificationToken = VerificationTokenGenerator.GenerateToken(email);
 
-            string query = @"INSERT INTO Users (Username, Email, PhoneNumber, Password, Role, CreatedAt) VALUES (@Username, @Email, @PhoneNumber, @Password, @Role, @CreatedAt)";
+            string query = @"INSERT INTO Users (Username, Email, VerificationToken, PhoneNumber, Password, Role, CreatedAt) VALUES (@Username, @Email, @VerificationToken, @PhoneNumber, @Password, @Role, @CreatedAt)";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@Username", username);
                 command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@VerificationToken", verificationToken);
                 command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                 command.Parameters.AddWithValue("@Password", savedPasswordHash);
                 command.Parameters.AddWithValue("@Role", role);
@@ -58,6 +75,8 @@ namespace ASP.NET_heimdall
                 signUpPassword.Text = "";
                 signUpConfirmPassword.Text = "";
             }
+
+            SendVerificationEmail(email, verificationToken);
         }
     }
 }
