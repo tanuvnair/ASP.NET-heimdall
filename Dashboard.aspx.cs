@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace ASP.NET_heimdall
@@ -14,7 +15,6 @@ namespace ASP.NET_heimdall
                 {
                     AttendanceRecordButtonWrapper.CssClass += " d-none";
                     ShowAttendanceDetails.CssClass.Replace("d-none", "").Trim();
-
                 }
                 else
                 {
@@ -22,7 +22,7 @@ namespace ASP.NET_heimdall
                     AttendanceRecordButtonWrapper.CssClass.Replace("d-none", "").Trim();
                 }
 
-                // Variables to store attendance statistics
+                // Variables to store attendance statistics with default values set to 0
                 int daysPresent = 0;
                 int daysLate = 0;
                 int daysMissed = 0;
@@ -67,7 +67,6 @@ namespace ASP.NET_heimdall
             FROM AttendanceRecords
             WHERE UserID = @UserID AND CAST(AttendanceDate AS DATE) = CAST(GETDATE() AS DATE);";
 
-                SqlConnection connection = DatabaseHelper.GetConnection();
                 connection.Open();
 
                 // Execute query to calculate attendance statistics
@@ -78,10 +77,10 @@ namespace ASP.NET_heimdall
                 if (readerAttendanceStats.HasRows)
                 {
                     readerAttendanceStats.Read();
-                    daysPresent = readerAttendanceStats.GetInt32(0);
-                    daysLate = readerAttendanceStats.GetInt32(1);
-                    daysMissed = readerAttendanceStats.GetInt32(2);
-                    percentagePresent = readerAttendanceStats.GetDecimal(3);
+                    daysPresent = readerAttendanceStats.IsDBNull(0) ? 0 : readerAttendanceStats.GetInt32(0);
+                    daysLate = readerAttendanceStats.IsDBNull(1) ? 0 : readerAttendanceStats.GetInt32(1);
+                    daysMissed = readerAttendanceStats.IsDBNull(2) ? 0 : readerAttendanceStats.GetInt32(2);
+                    percentagePresent = readerAttendanceStats.IsDBNull(3) ? 0 : readerAttendanceStats.GetDecimal(3);
                 }
                 else
                 {
@@ -115,7 +114,7 @@ namespace ASP.NET_heimdall
                 DaysLate.Text = $"{daysLate}";
                 DaysMissed.Text = $"{daysMissed}";
                 AttendancePercentage.Text = $"{percentagePresent}%";
-                PunchedInTime.Text = $"{todayAttendanceTime}";
+                PunchedInTime.Text = todayAttendanceTime?.ToString() ?? "No attendance time recorded for today.";
             }
         }
 
@@ -136,12 +135,7 @@ namespace ASP.NET_heimdall
 
             connection.Close();
 
-            if (recordCount != 0)
-            {
-                return true;
-            }
-
-            return false;
+            return recordCount != 0;
         }
 
         protected void RecordAttendanceButtonClick(object sender, EventArgs e)

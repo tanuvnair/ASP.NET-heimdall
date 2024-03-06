@@ -12,9 +12,19 @@ namespace ASP.NET_heimdall
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == null)
+            if (Session["Username"] == null)
             {
                 Response.Redirect("Default.aspx");
+            } 
+
+            if (Session["Role"] == "Admin")
+            {
+                Response.Redirect("~/Admin/Dashboard.aspx");
+            }
+
+            if (Session["Role"] == "User")
+            {
+                Response.Redirect("~/Dashboard.aspx");
             }
 
             usernameLabel.Text = "Welcome, " + Session["username"];

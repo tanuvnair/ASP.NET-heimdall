@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Dashboard.aspx" />
     <Content Include="App_Data\Heimdall.mdf" />
     <Content Include="App_Data\Heimdall_log.ldf">
       <DependentUpon>Heimdall.mdf</DependentUpon>
@@ -101,6 +102,7 @@
     <Content Include="Assets\heimdall-300x300-transparent.png" />
     <Content Include="Assets\login-register-background.svg" />
     <Content Include="AttendanceHistory.aspx" />
+    <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -122,6 +124,7 @@
     <Content Include="Content\style.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Scripts\all.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -129,11 +132,17 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SignUp.aspx" />
-    <Content Include="Admin\Users.aspx" />
     <Content Include="VerifyEmail.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AttendanceHistory.aspx.cs">
       <DependentUpon>AttendanceHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,13 +186,6 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Users.aspx.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Users.aspx.designer.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="VerificationTokenGenerator.cs" />
     <Compile Include="VerifyEmail.aspx.cs">

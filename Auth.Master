@@ -8,6 +8,7 @@
     <link href="Content/style.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="Content/all.min.css" rel="stylesheet" />
     <link runat="server" rel="icon" href="Assets/heimdall-300x300-transparent.png" type="image/ico"/>
 </head>
 
@@ -35,6 +36,6 @@
 
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/8b835e0cdc.js" crossorigin="anonymous"></script>
+    <script src="Scripts/all.min.js"></script>
 </body>
 </html>

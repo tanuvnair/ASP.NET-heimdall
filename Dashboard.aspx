@@ -7,21 +7,21 @@
                 <div class="d-flex justify-content-center gap-5">
                     <div class="card bg-success text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
-                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysPresent" runat="server"></asp:Label></span></h1>
+                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysPresent" runat="server" Text="0"></asp:Label></span></h1>
                             <h3>Days Present</h3>
                         </a>
                     </div>
 
                     <div class="card bg-warning text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
-                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysLate" runat="server"></asp:Label></span></h1>
+                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysLate" runat="server" Text="0"></asp:Label></span></h1>
                             <h3>Days Late</h3>
                         </a>
                     </div>
 
                     <div class="card bg-danger text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
-                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysMissed" runat="server"></asp:Label></span></h1>
+                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysMissed" runat="server" Text="0"></asp:Label></span></h1>
                             <h3>Days Missed</h3>
                         </a>
                     </div>
@@ -40,8 +40,9 @@
                         </asp:Panel>
 
                         <asp:Panel ID="ShowAttendanceDetails" CssClass="d-flex flex-column mx-auto w-75 p-5 border border-1 rounded-3 border-info text-center" runat="server">
-                            <asp:Label runat="server" Text="You have punched in at "></asp:Label>
+                            <asp:Label runat="server" Text="You have already punched in at "></asp:Label>
                             <asp:Label CssClass="fw-bold fs-3" ID="PunchedInTime" runat="server" Text="9:00 AM"></asp:Label>
+                            <asp:Label CssClass="mt-3" runat="server" Text="Come back tomorrow! "></asp:Label>
                         </asp:Panel>
                 </div>
             </div>
