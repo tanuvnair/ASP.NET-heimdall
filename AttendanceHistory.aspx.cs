@@ -15,5 +15,26 @@ namespace ASP.NET_heimdall
         {
 
         }
+
+        protected void AttendanceHistoryGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string attendanceDate = e.Row.Cells[0].Text;
+                DateTime parsedDate;
+                if (DateTime.TryParse(attendanceDate, out parsedDate))
+                {
+                    e.Row.Cells[0].Text = parsedDate.ToString("dd-MM-yyyy");
+                }
+
+                string attendanceTime = e.Row.Cells[1].Text;
+                TimeSpan parsedTime;
+                if (TimeSpan.TryParse(attendanceTime, out parsedTime))
+                {
+                    e.Row.Cells[1].Text = parsedTime.ToString(@"hh\:mm\:ss");
+                }
+            }
+        }
+
     }
 }

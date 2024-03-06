@@ -8,8 +8,9 @@
                 <asp:SessionParameter Name="UserID" SessionField="UserID" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+
         <div class="table-responsive mt-4 w-50" style="height: calc(100vh - 300px)">
-            <asp:GridView CssClass="table table table-bordered border-black" ID="AttendanceHistoryGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="AttendanceRecordID" DataSourceID="SqlDataSource1" AllowSorting="True">
+            <asp:GridView OnRowDataBound="AttendanceHistoryGridView_RowDataBound" CssClass="table table table-bordered border-black" ID="AttendanceHistoryGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="AttendanceRecordID" DataSourceID="SqlDataSource1" AllowSorting="True">
                 <Columns>
                     <asp:BoundField DataField="AttendanceDate" HeaderText="Attendance Date" SortExpression="AttendanceDate" />
                     <asp:BoundField DataField="AttendanceTime" HeaderText="Attendance Time" SortExpression="AttendanceTime" />
@@ -17,6 +18,5 @@
                 </Columns>
             </asp:GridView>
         </div>
-
     </div>
 </asp:Content>
