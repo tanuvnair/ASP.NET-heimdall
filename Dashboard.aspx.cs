@@ -110,6 +110,8 @@ namespace ASP.NET_heimdall
                     todayAttendanceTime = adjustedTime;
                 }
 
+                connection.Close();
+
                 DaysPresent.Text = $"{daysPresent}";
                 DaysLate.Text = $"{daysLate}";
                 DaysMissed.Text = $"{daysMissed}";

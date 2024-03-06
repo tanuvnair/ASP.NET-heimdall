@@ -3,7 +3,7 @@
 <asp:Content ContentPlaceHolderID="BodyContent" runat="server">
     <div class="m-5">
         <h1>Attendance History</h1>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PC %>" SelectCommand="SELECT [UserID], [AttendanceDate], [AttendanceTime], [Status], [AttendanceRecordID] FROM [AttendanceRecords] WHERE ([UserID] = @UserID)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Laptop %>" SelectCommand="SELECT [UserID], [AttendanceDate], [AttendanceTime], [Status], [AttendanceRecordID] FROM [AttendanceRecords] WHERE ([UserID] = @UserID)">
             <SelectParameters>
                 <asp:SessionParameter Name="UserID" SessionField="UserID" Type="Int32" />
             </SelectParameters>

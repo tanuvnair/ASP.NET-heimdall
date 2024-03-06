@@ -52,7 +52,7 @@
                     </ul>
                 </header>
 
-                <main class="bg-light overflow-y-auto">
+                <main class="overflow-y-auto">
                     <asp:ContentPlaceHolder ID="BodyContent" runat="server"></asp:ContentPlaceHolder>
                 </main>
             </div>
