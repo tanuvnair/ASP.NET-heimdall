@@ -1,0 +1,22 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AttendanceHistory.aspx.cs" Inherits="ASP.NET_heimdall.AttendanceHistory" MasterPageFile="~/Site.Master" %>
+
+<asp:Content ContentPlaceHolderID="BodyContent" runat="server">
+    <div class="m-5">
+        <h1>Attendance History</h1>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PC %>" SelectCommand="SELECT [UserID], [AttendanceDate], [AttendanceTime], [Status], [AttendanceRecordID] FROM [AttendanceRecords] WHERE ([UserID] = @UserID)">
+            <SelectParameters>
+                <asp:SessionParameter Name="UserID" SessionField="UserID" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <div class="table-responsive mt-4 w-50" style="height: calc(100vh - 300px)">
+            <asp:GridView CssClass="table table table-bordered border-black" ID="AttendanceHistoryGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="AttendanceRecordID" DataSourceID="SqlDataSource1" AllowSorting="True">
+                <Columns>
+                    <asp:BoundField DataField="AttendanceDate" HeaderText="Attendance Date" SortExpression="AttendanceDate" />
+                    <asp:BoundField DataField="AttendanceTime" HeaderText="Attendance Time" SortExpression="AttendanceTime" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                </Columns>
+            </asp:GridView>
+        </div>
+
+    </div>
+</asp:Content>

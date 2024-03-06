@@ -13,5 +13,41 @@ namespace ASP.NET_heimdall
 
     public partial class Dashboard
     {
+
+        /// <summary>
+        /// AttendanceRecordButtonWrapper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AttendanceRecordButtonWrapper;
+
+        /// <summary>
+        /// RecordAttendanceButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RecordAttendanceButton;
+
+        /// <summary>
+        /// ShowAttendanceDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ShowAttendanceDetails;
+
+        /// <summary>
+        /// PunchedInTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PunchedInTime;
     }
 }

@@ -32,11 +32,17 @@
                             <h3>Attendance Percentage</h3>
                         </a>
                     </div>
-
-                    
                 </div>
-                                <div>
-<asp:Button Text="Record Attendance For Today" OnClick="RecordAttendanceButtonClick" runat="server"/>
+
+                <div class="w-50 mx-auto p-3 mt-5">
+                        <asp:Panel ID="AttendanceRecordButtonWrapper" CssClass="mx-auto d-flex justify-content-center w-75 p-5 text-center" runat="server">
+                            <asp:Button CssClass="btn btn-lg btn-primary d-flex" ID="RecordAttendanceButton" Text="Record Attendance For Today" OnClick="RecordAttendanceButtonClick" runat="server" />
+                        </asp:Panel>
+
+                        <asp:Panel ID="ShowAttendanceDetails" CssClass="d-flex flex-column mx-auto w-75 p-5 border border-1 rounded-3 border-info text-center" runat="server">
+                            <asp:Label runat="server" Text="You have punched in at "></asp:Label>
+                            <asp:Label CssClass="fw-bold fs-3" ID="PunchedInTime" runat="server" Text="9:00 AM"></asp:Label>
+                        </asp:Panel>
                 </div>
             </div>
         </div>

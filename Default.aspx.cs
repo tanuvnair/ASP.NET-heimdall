@@ -62,6 +62,8 @@ namespace ASP.NET_heimdall
                     }
                 }
             }
+
+            connection.Close();
         }
 
         protected void Page_Load(object sender, EventArgs e)

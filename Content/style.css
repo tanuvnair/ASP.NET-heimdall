@@ -58,3 +58,9 @@ header {
 .errors-card {
     transition: top 0.3s ease 0s;
 }
+
+/*Pagination ui*/
+/*table tr:last-child table {
+    width: 54%;
+    margin: auto;
+}*/

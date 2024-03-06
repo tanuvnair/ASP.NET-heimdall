@@ -100,7 +100,7 @@
     <Content Include="Assets\heimdall-1000x1000-transparent.png" />
     <Content Include="Assets\heimdall-300x300-transparent.png" />
     <Content Include="Assets\login-register-background.svg" />
-    <Content Include="Attendance.aspx" />
+    <Content Include="AttendanceHistory.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -134,12 +134,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attendance.aspx.cs">
-      <DependentUpon>Attendance.aspx</DependentUpon>
+    <Compile Include="AttendanceHistory.aspx.cs">
+      <DependentUpon>AttendanceHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Attendance.aspx.designer.cs">
-      <DependentUpon>Attendance.aspx</DependentUpon>
+    <Compile Include="AttendanceHistory.aspx.designer.cs">
+      <DependentUpon>AttendanceHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Auth.Master.cs">
       <DependentUpon>Auth.Master</DependentUpon>
