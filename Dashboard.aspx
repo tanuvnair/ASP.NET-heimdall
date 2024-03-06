@@ -7,28 +7,28 @@
                 <div class="d-flex justify-content-center gap-5">
                     <div class="card bg-success text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
-                            <h1><span class="badge text-bg-light">12</span></h1>
+                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysPresent" runat="server"></asp:Label></span></h1>
                             <h3>Days Present</h3>
                         </a>
                     </div>
 
                     <div class="card bg-warning text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
-                            <h1><span class="badge text-bg-light">1</span></h1>
+                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysLate" runat="server"></asp:Label></span></h1>
                             <h3>Days Late</h3>
                         </a>
                     </div>
 
                     <div class="card bg-danger text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
-                            <h1><span class="badge text-bg-light">3</span></h1>
+                            <h1><span class="badge text-bg-light"><asp:Label ID="DaysMissed" runat="server"></asp:Label></span></h1>
                             <h3>Days Missed</h3>
                         </a>
                     </div>
 
                     <div class="card bg-primary text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column  justify-content-center text-decoration-none gap-2 p-4">
-                            <h1><span class="badge text-bg-light">3</span></h1>
+                            <h1><span class="badge text-bg-light"><asp:Label ID="AttendancePercentage" runat="server"></asp:Label></span></h1>
                             <h3>Attendance Percentage</h3>
                         </a>
                     </div>

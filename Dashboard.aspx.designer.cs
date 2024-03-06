@@ -15,6 +15,42 @@ namespace ASP.NET_heimdall
     {
 
         /// <summary>
+        /// DaysPresent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DaysPresent;
+
+        /// <summary>
+        /// DaysLate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DaysLate;
+
+        /// <summary>
+        /// DaysMissed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label DaysMissed;
+
+        /// <summary>
+        /// AttendancePercentage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AttendancePercentage;
+
+        /// <summary>
         /// AttendanceRecordButtonWrapper control.
         /// </summary>
         /// <remarks>
