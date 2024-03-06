@@ -2,16 +2,13 @@
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace ASP.NET_heimdall
 {
     public partial class SignUp : System.Web.UI.Page
     {
-        // Laptop
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\projects\heimdall\ASP.NET-heimdall\App_Data\Heimdall.mdf;Integrated Security=True");
-
-        // PC
-        //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\projects\algorisys-internship\heimdall\ASP.NET-heimdall\App_Data\Heimdall.mdf;Integrated Security=True");
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PC"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
