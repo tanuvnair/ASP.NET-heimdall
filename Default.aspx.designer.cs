@@ -51,12 +51,21 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.RequiredFieldValidator signInRequiredPassword;
 
         /// <summary>
-        /// SignInButton control.
+        /// invalidCredentials control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SignInButton;
+        protected global::System.Web.UI.WebControls.Label invalidCredentials;
+
+        /// <summary>
+        /// signInButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button signInButton;
     }
 }

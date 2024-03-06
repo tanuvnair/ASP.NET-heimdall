@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ASP.NET_heimdall.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    <title>Admin Master Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="Content/style.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-icons.min.css" rel="stylesheet" />
+    <link runat="server" rel="icon" href="Assets/heimdall-300x300-transparent.png" type="image/ico" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body class="body overflow-hidden">
+    <form id="form1" runat="server">
+        <div class="main-container d-flex">
+            <div class="sidebar" id="side_nav">
+                <div class="logo">
+                    <img src="Assets/heimdall-1000x1000-transparent.png" class="ms-3" alt="Logo" width="125" />
+                </div>
+
+                <ul class="list-unstyled px-2 d-flex flex-column justify-content-evenly">
+                    <li>
+                        <a href="Dashboard.aspx" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-house me-2"></i>Dashboard</a></li>
+                    <li>
+                        <a href="Attendance.aspx" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-clipboard-user me-2"></i>Attendance History</a></li>
+
+                    <asp:ContentPlaceHolder ID="AdminDashboard" runat="server">
+                    </asp:ContentPlaceHolder>
+                </ul>
+            </div>
+
+            <div class="content">
+                <header class="navbar-light bg-dark text-light">
+                    <ul class="navbar-nav">
+                        <li class="dropleft">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <asp:Label ID="usernameLabel" runat="server" Text="Profile" CssClass="me-2"></asp:Label><i class="fa-fw fa-solid fa-user me-1"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><asp:LinkButton CssClass="dropdown-item" runat="server" Text="Sign Out" OnClick="SignOutButtonClick"></asp:LinkButton></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </header>
+
+                <main class="bg-light overflow-y-auto">
+                    <asp:ContentPlaceHolder ID="bodyContent" runat="server"></asp:ContentPlaceHolder>
+                </main>
+            </div>
+        </div>
+    </form>
+
+
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8b835e0cdc.js" crossorigin="anonymous"></script>
+</body>
+</html>

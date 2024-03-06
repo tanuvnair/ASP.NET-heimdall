@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-center align-items-center gap-3">
                 <i class="fa-fw fa-solid fa-user"></i>
 
-                <asp:TextBox ID="signInUsername" runat="server" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Username"></asp:TextBox>
+                <asp:TextBox ID="signInUsername" runat="server" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Username" Text="tanuv"></asp:TextBox>
             </div>
             <div class="ms-5">
                 <asp:RequiredFieldValidator class="card-text text-danger" ID="signInRequiredUsername" runat="server" ErrorMessage="*The username field is required." ControlToValidate="signInUsername" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -18,15 +18,19 @@
             <div class="d-flex justify-content-center align-items-center gap-3">
                 <i class="fa-fw fa-solid fa-lock"></i>
 
-                <asp:TextBox ID="signInPassword" runat="server" TextMode="Password" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Password"></asp:TextBox>
+                <asp:TextBox ID="signInPassword" runat="server" TextMode="SingleLine" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Password" Text="tanuv123"></asp:TextBox>
             </div>
+
             <div class="ms-5">
                 <asp:RequiredFieldValidator class="text-danger" ID="signInRequiredPassword" runat="server" ErrorMessage="*The password field is required." ControlToValidate="signInPassword" Display="Dynamic"></asp:RequiredFieldValidator>
+                <div>
+                  <asp:Label ID="invalidCredentials" CssClass="text-danger" runat="server" Text=""></asp:Label>
+                </div>
             </div>
 
-            <h6 class="mt-3"><a href="#" class="text-decoration-none">Forgot Password?</a></h6>
+            <%--<h6 class="mt-3"><a href="#" class="text-decoration-none">Forgot Password?</a></h6>--%>
 
-            <asp:Button ID="SignInButton" CssClass="btn btn-outline-light mt-3 px-4 py-2" runat="server" Text="Sign In" OnClick="SignInButtonClick"></asp:Button>
+            <asp:Button ID="signInButton" CssClass="btn btn-outline-light mt-4 px-4 py-2" runat="server" Text="Sign In" OnClick="SignInButtonClick"></asp:Button>
 
             <h6 class="d-flex mt-5">Don't have an account?<a href="SignUp.aspx" class="ms-2 text-decoration-none" id="signUpLink">Sign Up</a></h6>
         </div>

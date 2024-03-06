@@ -6,7 +6,7 @@ namespace ASP.NET_heimdall
 {
     public partial class VerifyEmail : System.Web.UI.Page
     {
-        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["PC"].ConnectionString);
+        SqlConnection connection = DatabaseHelper.GetConnection();
 
         protected void Page_Load(object sender, EventArgs e)
         {

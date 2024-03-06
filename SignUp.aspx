@@ -57,9 +57,9 @@
                 <asp:CompareValidator CssClass="text-danger" ID="ComparePassword" runat="server" ErrorMessage="*Passwords do not match." ControlToValidate="signUpPassword" ControlToCompare="signUpConfirmPassword" Display="Dynamic"></asp:CompareValidator>
             </div>
 
-            <asp:Button CssClass="btn btn-outline-light mt-3 px-4 py-2" ID="SignUpButton" runat="server" OnClick="SignUpButtonClick" Text="Sign Up" />
+            <asp:Button CssClass="btn btn-outline-light mt-4 px-4 py-2" ID="SignUpButton" runat="server" OnClick="SignUpButtonClick" Text="Sign Up" />
 
-            <h6 class="d-flex mt-4">Already have an account?<a href="Default.aspx" class="ms-2 text-decoration-none" id="signInLink">Sign In</a></h6>
+            <h6 class="d-flex mt-5">Already have an account?<a href="Default.aspx" class="ms-2 text-decoration-none" id="signInLink">Sign In</a></h6>
         </div>
     </form>
 </asp:Content>
