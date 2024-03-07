@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AttendanceHistory.aspx.cs" Inherits="ASP.NET_heimdall.AttendanceHistory" MasterPageFile="~/Site.Master" %>
 
-<asp:Content ContentPlaceHolderID="BodyContent" runat="server">
+<asp:Content ContentPlaceHolderID="UserBodyContent" runat="server">
     <div class="m-5">
         <h1>Attendance History</h1>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Laptop %>" SelectCommand="SELECT [UserID], [AttendanceDate], [AttendanceTime], [Status], [AttendanceRecordID] FROM [AttendanceRecords] WHERE ([UserID] = @UserID)">

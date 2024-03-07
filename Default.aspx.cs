@@ -83,7 +83,20 @@ namespace ASP.NET_heimdall
             if(IsValidUser(username, password, savedPasswordHash))
             {
                 CreateSession(username);
-                Response.Redirect("Dashboard.aspx");
+
+                if ((string)Session["Role"] == "admin")
+                {
+                    Response.Redirect("~/Admin/Dashboard.aspx");
+                }
+
+                else if ((string)Session["Role"] == "member")
+                {
+                    Response.Redirect("~/Dashboard.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
             } else
             {
                 invalidCredentials.Text = "*Invalid Credentials";

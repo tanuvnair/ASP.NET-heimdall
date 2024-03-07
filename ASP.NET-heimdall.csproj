@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\UserManagement.aspx" />
     <Content Include="App_Data\Heimdall.mdf" />
     <Content Include="App_Data\Heimdall_log.ldf">
       <DependentUpon>Heimdall.mdf</DependentUpon>
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="Admin\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="AttendanceHistory.aspx.cs">
       <DependentUpon>AttendanceHistory.aspx</DependentUpon>

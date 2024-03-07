@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="ASP.NET_heimdall.Dashboard" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="ASP.NET_heimdall.Dashboard" MasterPageFile="/Site.Master" %>
 
-<asp:Content ContentPlaceHolderID="bodyContent" runat="server">
+<asp:Content ContentPlaceHolderID="UserBodyContent" runat="server">
     <div class="container-fluid p-5">
         <div class="row">
             <div class="col-sm-12">
+                <h1 class="mb-5">Welcome to User dashboard</h1>
                 <div class="d-flex justify-content-center gap-5">
                     <div class="card bg-success text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">

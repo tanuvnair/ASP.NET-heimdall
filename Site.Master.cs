@@ -14,17 +14,18 @@ namespace ASP.NET_heimdall
         {
             if (Session["Username"] == null)
             {
-                Response.Redirect("Default.aspx");
-            } 
-
-            if (Session["Role"] == "Admin")
-            {
-                Response.Redirect("~/Admin/Dashboard.aspx");
+                Response.Redirect("/Default.aspx");
             }
 
-            if (Session["Role"] == "User")
+            if ((string)Session["Role"] == "admin") 
             {
-                Response.Redirect("~/Dashboard.aspx");
+                UserSidebar.CssClass += " d-none";
+                AdminSidebar.CssClass.Replace("d-none", "").Trim();
+            }
+            else
+            {
+                AdminSidebar.CssClass += " d-none";
+                UserSidebar.CssClass.Replace("d-none", "").Trim();
             }
 
             usernameLabel.Text = "Welcome, " + Session["username"];
@@ -34,7 +35,7 @@ namespace ASP.NET_heimdall
         {
             Session.Clear();
             Session.Abandon();
-            Response.Redirect("Default.aspx");
+            Response.Redirect("/Default.aspx");
         }
     }
 }

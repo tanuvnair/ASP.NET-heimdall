@@ -24,13 +24,22 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
-        /// AdminDashboard control.
+        /// UserSidebar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminDashboard;
+        protected global::System.Web.UI.WebControls.Panel UserSidebar;
+
+        /// <summary>
+        /// AdminSidebar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AdminSidebar;
 
         /// <summary>
         /// usernameLabel control.
@@ -42,12 +51,21 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.Label usernameLabel;
 
         /// <summary>
-        /// BodyContent control.
+        /// UserBodyContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder BodyContent;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder UserBodyContent;
+
+        /// <summary>
+        /// AdminBodyContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder AdminBodyContent;
     }
 }
