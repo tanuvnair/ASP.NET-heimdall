@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AttendanceHistory.aspx.cs" Inherits="ASP.NET_heimdall.AttendanceHistory" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Title="Attendance History" Language="C#" AutoEventWireup="true" CodeBehind="AttendanceHistory.aspx.cs" Inherits="ASP.NET_heimdall.AttendanceHistory" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ContentPlaceHolderID="UserBodyContent" runat="server">
     <div class="m-5">
@@ -9,8 +9,8 @@
             </SelectParameters>
         </asp:SqlDataSource>
 
-        <div class="table-responsive mt-4 w-50" style="height: calc(100vh - 300px)">
-            <asp:GridView OnRowDataBound="AttendanceHistoryGridView_RowDataBound" CssClass="table table table-bordered border-black" ID="AttendanceHistoryGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="AttendanceRecordID" DataSourceID="SqlDataSource1" AllowSorting="True">
+        <div class="table-responsive mt-4" style="height: calc(100vh - 300px)">
+            <asp:GridView OnRowDataBound="AttendanceHistoryGridView_RowDataBound" CssClass="table" ID="AttendanceHistoryGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="AttendanceRecordID" DataSourceID="SqlDataSource1" AllowSorting="True">
                 <Columns>
                     <asp:BoundField DataField="AttendanceDate" HeaderText="Attendance Date" SortExpression="AttendanceDate" />
                     <asp:BoundField DataField="AttendanceTime" HeaderText="Attendance Time" SortExpression="AttendanceTime" />

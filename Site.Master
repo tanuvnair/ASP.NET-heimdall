@@ -38,7 +38,7 @@
                         <li>
                             <a href="/Admin/Dashboard.aspx" class="text-decoration-none px-3 py-2 d-block active"><i class="fa-fw fa-solid fa-house me-2"></i>Dashboard</a></li>
                         <li class="">
-                            <a href="/Admin/UserManagement.aspx" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-clipboard-user me-2"></i>User Management</a>
+                            <a href="/Admin/UserList.aspx" class="text-decoration-none px-3 py-2 d-block"><i class="fa-fw fa-solid fa-clipboard-user me-2"></i>User Management</a>
                         </li>
                     </asp:Panel>
                 </ul>

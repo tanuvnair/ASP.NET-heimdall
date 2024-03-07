@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="ASP.NET_heimdall.Dashboard" MasterPageFile="/Site.Master" %>
+﻿<%@ Page Title="User Dashboard" Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="ASP.NET_heimdall.Dashboard" MasterPageFile="/Site.Master" %>
 
 <asp:Content ContentPlaceHolderID="UserBodyContent" runat="server">
     <div class="container-fluid p-5">
