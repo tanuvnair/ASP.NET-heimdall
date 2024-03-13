@@ -51,31 +51,31 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.Label AttendancePercentage;
 
         /// <summary>
-        /// AttendanceRecordButtonWrapper control.
+        /// PunchInWrapper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel AttendanceRecordButtonWrapper;
+        protected global::System.Web.UI.WebControls.Panel PunchInWrapper;
 
         /// <summary>
-        /// RecordAttendanceButton control.
+        /// PunchIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RecordAttendanceButton;
+        protected global::System.Web.UI.WebControls.Button PunchIn;
 
         /// <summary>
-        /// ShowAttendanceDetails control.
+        /// PunchOutWrapper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel ShowAttendanceDetails;
+        protected global::System.Web.UI.WebControls.Panel PunchOutWrapper;
 
         /// <summary>
         /// PunchedInTime control.
@@ -85,5 +85,32 @@ namespace ASP.NET_heimdall
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PunchedInTime;
+
+        /// <summary>
+        /// PunchOut control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PunchOut;
+
+        /// <summary>
+        /// AlreadyPunchedOutWrapper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AlreadyPunchedOutWrapper;
+
+        /// <summary>
+        /// PunchedOutTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PunchedOutTime;
     }
 }

@@ -11,6 +11,7 @@
 
                 <asp:TextBox ID="signInUsername" runat="server" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Username"></asp:TextBox>
             </div>
+
             <div class="ms-5">
                 <asp:RequiredFieldValidator class="card-text text-danger" ID="signInRequiredUsername" runat="server" ErrorMessage="*The username field is required." ControlToValidate="signInUsername" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>

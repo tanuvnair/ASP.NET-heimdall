@@ -13,13 +13,25 @@ namespace ASP.NET_heimdall
             {
                 if (IsPunchedIn((int)Session["UserID"]))
                 {
-                    AttendanceRecordButtonWrapper.CssClass += " d-none";
-                    ShowAttendanceDetails.CssClass.Replace("d-none", "").Trim();
+                    PunchInWrapper.CssClass += " d-none";
+                    PunchOutWrapper.CssClass.Replace("d-none", "").Trim();
+
+                    if (IsPunchedOut((int)Session["UserID"]))
+                    {
+                        PunchOutWrapper.CssClass += " d-none";
+                        AlreadyPunchedOutWrapper.CssClass.Replace("d-none", "").Trim();
+                    }
+                    else
+                    {
+                        AlreadyPunchedOutWrapper.CssClass += " d-none";
+                        PunchOutWrapper.CssClass.Replace("d-none", "").Trim();
+                    }
                 }
                 else
                 {
-                    ShowAttendanceDetails.CssClass += " d-none";
-                    AttendanceRecordButtonWrapper.CssClass.Replace("d-none", "").Trim();
+                    PunchOutWrapper.CssClass += " d-none";
+                    AlreadyPunchedOutWrapper.CssClass += " d-none";
+                    PunchInWrapper.CssClass.Replace("d-none", "").Trim();
                 }
 
                 // Variables to store attendance statistics with default values set to 0
@@ -30,6 +42,7 @@ namespace ASP.NET_heimdall
 
                 // Variable to store today's attendance time
                 TimeSpan? todayAttendanceTime = null;
+                TimeSpan? todayPunchedOutTime = null;
 
                 // Query to calculate attendance statistics
                 string queryAttendanceStats = @"
@@ -46,7 +59,7 @@ namespace ASP.NET_heimdall
             SELECT @DaysPresent = COUNT(DISTINCT CONVERT(DATE, AttendanceDate)) FROM AttendanceRecords WHERE UserID = @UserID AND Status = 'Present';
 
             -- Calculate days late
-            SELECT @DaysLate = COUNT(DISTINCT CONVERT(DATE, AttendanceDate)) FROM AttendanceRecords WHERE UserID = @UserID AND Status = 'Present' AND AttendanceTime > '09:30:00';
+            SELECT @DaysLate = COUNT(DISTINCT CONVERT(DATE, AttendanceDate)) FROM AttendanceRecords WHERE UserID = @UserID AND Status = 'Present' AND PunchInTime > '09:30:00';
 
             -- Calculate days missed
             SET @DaysMissed = @TotalDays - @DaysPresent - @DaysLate;
@@ -63,7 +76,7 @@ namespace ASP.NET_heimdall
 
                 // Query to get today's attendance time for the specified user
                 string queryTodayAttendanceTime = @"
-            SELECT AttendanceTime
+            SELECT PunchInTime, PunchOutTime
             FROM AttendanceRecords
             WHERE UserID = @UserID AND CAST(AttendanceDate AS DATE) = CAST(GETDATE() AS DATE);";
 
@@ -97,6 +110,7 @@ namespace ASP.NET_heimdall
                 {
                     readerTodayAttendanceTime.Read();
                     todayAttendanceTime = readerTodayAttendanceTime.IsDBNull(0) ? (TimeSpan?)null : readerTodayAttendanceTime.GetTimeSpan(0);
+                    todayPunchedOutTime = readerTodayAttendanceTime.IsDBNull(1) ? (TimeSpan?)null : readerTodayAttendanceTime.GetTimeSpan(1);
                 }
                 else
                 {
@@ -110,6 +124,12 @@ namespace ASP.NET_heimdall
                     todayAttendanceTime = adjustedTime;
                 }
 
+                if (todayPunchedOutTime.HasValue)
+                {
+                    TimeSpan adjustedOutTime = new TimeSpan(todayPunchedOutTime.Value.Hours, todayPunchedOutTime.Value.Minutes, todayPunchedOutTime.Value.Seconds);
+                    todayPunchedOutTime = adjustedOutTime;
+                }
+
                 connection.Close();
 
                 DaysPresent.Text = $"{daysPresent}";
@@ -117,8 +137,11 @@ namespace ASP.NET_heimdall
                 DaysMissed.Text = $"{daysMissed}";
                 AttendancePercentage.Text = $"{percentagePresent}%";
                 PunchedInTime.Text = todayAttendanceTime?.ToString() ?? "No attendance time recorded for today.";
+                PunchedOutTime.Text = todayPunchedOutTime?.ToString() ?? "No punch-out time recorded for today.";
             }
         }
+
+
 
         protected bool IsPunchedIn(int userID)
         {
@@ -140,18 +163,58 @@ namespace ASP.NET_heimdall
             return recordCount != 0;
         }
 
-        protected void RecordAttendanceButtonClick(object sender, EventArgs e)
+        protected bool IsPunchedOut(int userID)
+        {
+            string query = @"SELECT COUNT(*) FROM [dbo].[AttendanceRecords] WHERE [UserID] = @UserID AND [AttendanceDate] = @AttendanceDate AND [PunchOutTime] IS NOT NULL";
+            int recordCount = 0;
+
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@UserID", userID);
+                command.Parameters.AddWithValue("@AttendanceDate", DateTime.Today);
+
+                recordCount = (int)command.ExecuteScalar();
+            }
+
+            connection.Close();
+
+            return recordCount > 0;
+        }
+
+        protected void PunchInButtonClick(object sender, EventArgs e)
         {
             connection.Open();
 
-            string query = @"INSERT INTO [dbo].[AttendanceRecords] ([UserID], [AttendanceDate], [AttendanceTime], [Status]) VALUES (@UserID, @AttendanceDate, @AttendanceTime, @Status)";
+            string query = @"INSERT INTO [dbo].[AttendanceRecords] ([UserID], [AttendanceDate], [PunchInTime], [PunchOutTime], [Status]) VALUES (@UserID, @AttendanceDate, @PunchInTime, NULL, @Status)";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@UserID", Session["UserID"]);
                 command.Parameters.AddWithValue("@AttendanceDate", DateTime.Today);
-                command.Parameters.AddWithValue("@AttendanceTime", DateTime.Now.TimeOfDay);
+                command.Parameters.AddWithValue("@PunchInTime", DateTime.Now.TimeOfDay);
                 command.Parameters.AddWithValue("@Status", "Present");
+
+                command.ExecuteNonQuery();
+            }
+
+            connection.Close();
+
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void PunchOutButtonClick(object sender, EventArgs e)
+        {
+            connection.Open();
+
+            string query = @"UPDATE [dbo].[AttendanceRecords] SET [PunchOutTime] = @PunchOutTime WHERE [UserID] = @UserID AND [AttendanceDate] = @AttendanceDate";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@UserID", Session["UserID"]);
+                command.Parameters.AddWithValue("@AttendanceDate", DateTime.Today);
+                command.Parameters.AddWithValue("@PunchOutTime", DateTime.Now.TimeOfDay);
 
                 command.ExecuteNonQuery();
             }
