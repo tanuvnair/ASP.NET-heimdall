@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ASP.NET_heimdall
@@ -11,15 +7,16 @@ namespace ASP.NET_heimdall
     public partial class AttendanceHistory : System.Web.UI.Page
     {
         SqlConnection connection = DatabaseHelper.GetConnection();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void AttendanceHistoryGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+                // Assuming the date column is at index 0
                 string attendanceDate = e.Row.Cells[0].Text;
                 DateTime parsedDate;
                 if (DateTime.TryParse(attendanceDate, out parsedDate))
@@ -27,14 +24,22 @@ namespace ASP.NET_heimdall
                     e.Row.Cells[0].Text = parsedDate.ToString("dd-MM-yyyy");
                 }
 
-                string attendanceTime = e.Row.Cells[1].Text;
-                TimeSpan parsedTime;
-                if (TimeSpan.TryParse(attendanceTime, out parsedTime))
+                // Assuming the time column is at index 1
+                string punchedInTime = e.Row.Cells[1].Text;
+                TimeSpan parsedInTime;
+                if (TimeSpan.TryParse(punchedInTime, out parsedInTime))
                 {
-                    e.Row.Cells[1].Text = parsedTime.ToString(@"hh\:mm\:ss");
+                    e.Row.Cells[1].Text = parsedInTime.ToString(@"hh\:mm\:ss");
+                }
+
+                // Assuming the time column is at index 2
+                string punchedOutTime = e.Row.Cells[2].Text;
+                TimeSpan parsedOutTime;
+                if (TimeSpan.TryParse(punchedOutTime, out parsedOutTime))
+                {
+                    e.Row.Cells[2].Text = parsedOutTime.ToString(@"hh\:mm\:ss");
                 }
             }
         }
-
     }
 }
