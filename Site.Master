@@ -53,6 +53,8 @@
                             </a>
                             <ul class="my-dropdown dropdown dropdown-menu bg-black bg-gradient text-bg-light" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li class="dropdown-item">
+                                    <asp:LinkButton runat="server" Text="Change Password" OnClick="ChangePasswordButtonClick"></asp:LinkButton></li>
+                                <li class="dropdown-item">
                                     <asp:LinkButton runat="server" Text="Sign Out" OnClick="SignOutButtonClick"></asp:LinkButton></li>
                             </ul>
                         </li>

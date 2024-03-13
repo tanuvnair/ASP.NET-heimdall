@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -10,6 +11,7 @@ namespace ASP.NET_heimdall
 {
     public partial class Site : System.Web.UI.MasterPage
     {
+        SqlConnection connection = DatabaseHelper.GetConnection();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Username"] == null)
@@ -38,6 +40,29 @@ namespace ASP.NET_heimdall
             Session.Clear();
             Session.Abandon();
             Response.Redirect("/Default.aspx");
+        }
+
+        protected void ChangePasswordButtonClick(object sender, EventArgs e)
+        {
+            string verificationToken = VerificationTokenGenerator.GenerateToken((string)Session["Email"]);
+
+            string query = @"UPDATE Users SET VerificationToken = @VerificationToken WHERE Email = @Email";
+
+            connection.Open();
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@VerificationToken", verificationToken);
+                command.Parameters.AddWithValue("@Email", Session["Email"]);
+
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+            Session.Clear();
+            Session.Abandon();
+
+            Response.Redirect($"/ResetPassword.aspx?token={verificationToken}");
         }
     }
 }
