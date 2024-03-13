@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ASP.NET_heimdall.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ASP.NET_heimdall.Site" %>
 
 <!DOCTYPE html>
 
@@ -45,15 +45,15 @@
             </div>
 
             <div class="content">
-                <header class="navbar-light bg-dark text-light">
+                <header class="navbar-black bg-black text-light">
                     <ul class="navbar-nav">
                         <li class="dropleft">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <asp:Label ID="usernameLabel" runat="server" Text="Profile" CssClass="me-2"></asp:Label><i class="fa-fw fa-solid fa-user me-1"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li>
-                                    <asp:LinkButton CssClass="dropdown-item" runat="server" Text="Sign Out" OnClick="SignOutButtonClick"></asp:LinkButton></li>
+                            <ul class="my-dropdown dropdown dropdown-menu bg-black bg-gradient text-bg-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li class="dropdown-item">
+                                    <asp:LinkButton runat="server" Text="Sign Out" OnClick="SignOutButtonClick"></asp:LinkButton></li>
                             </ul>
                         </li>
                     </ul>

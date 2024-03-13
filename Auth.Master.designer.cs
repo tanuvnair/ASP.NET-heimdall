@@ -33,12 +33,21 @@ namespace ASP.NET_heimdall
         protected global::System.Web.UI.WebControls.ContentPlaceHolder signUpPlaceHolder;
 
         /// <summary>
-        /// VerificationPlaceholder control.
+        /// forgotPasswordPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder VerificationPlaceholder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder forgotPasswordPlaceHolder;
+
+        /// <summary>
+        /// resetPasswordPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder resetPasswordPlaceHolder;
     }
 }

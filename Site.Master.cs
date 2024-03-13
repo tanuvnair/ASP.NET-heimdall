@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace ASP.NET_heimdall
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class Site : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,7 +17,7 @@ namespace ASP.NET_heimdall
                 Response.Redirect("/Default.aspx");
             }
 
-            if ((string)Session["Role"] == "admin") 
+            if ((string)Session["Role"] == "admin")
             {
                 UserSidebar.CssClass += " d-none";
                 AdminSidebar.CssClass.Replace("d-none", "").Trim();
@@ -28,7 +28,9 @@ namespace ASP.NET_heimdall
                 UserSidebar.CssClass.Replace("d-none", "").Trim();
             }
 
-            usernameLabel.Text = "Welcome, " + Session["username"];
+            string username = (string)Session["Username"];
+
+            usernameLabel.Text = "Welcome, " + username;
         }
 
         protected void SignOutButtonClick(object sender, EventArgs e)

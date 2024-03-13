@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Sign In" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ASP.NET_heimdall.Default" MasterPageFile="~/Auth.Master" %>
+﻿<%@ Page Title="Sign In" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ASP.NET_heimdall.Default" MasterPageFile="/Auth.Master" %>
 
 <asp:Content ContentPlaceHolderID="signInPlaceHolder" runat="server">
     <form action="/" method="post" runat="server">
@@ -28,11 +28,9 @@
                 </div>
             </div>
 
-            <%--<h6 class="mt-3"><a href="#" class="text-decoration-none">Forgot Password?</a></h6>--%>
+            <h6 class="mt-3"><a href="/ForgotPassword.aspx" class="text-decoration-none">Forgot Password?</a></h6>
 
             <asp:Button ID="signInButton" CssClass="btn btn-outline-light mt-4 px-4 py-2" runat="server" Text="Sign In" OnClick="SignInButtonClick"></asp:Button>
-
-            <h6 class="d-flex mt-5">Don't have an account?<a href="SignUp.aspx" class="ms-2 text-decoration-none" id="signUpLink">Sign Up</a></h6>
         </div>
     </form>
 </asp:Content>

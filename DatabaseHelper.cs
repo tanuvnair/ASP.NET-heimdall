@@ -11,7 +11,7 @@ namespace ASP.NET_heimdall
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["Laptop"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["PC"].ConnectionString;
             return new SqlConnection(connectionString);
         }
     }

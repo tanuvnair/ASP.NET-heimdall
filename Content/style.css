@@ -18,7 +18,6 @@
     width: calc(100% - 250px);
 }
 
-
 hr.h-color {
     background-color: #eee;
 }
@@ -56,12 +55,11 @@ header {
     transition: top 0.3s ease 0s;
 }
 
-.errors-card {
-    transition: top 0.3s ease 0s;
+.my-dropdown li a{
+    text-decoration: none;
+    color: white;
 }
 
-/*Pagination ui*/
-/*table tr:last-child table {
-    width: 54%;
-    margin: auto;
-}*/
+.my-dropdown li:hover {
+    background-color: grey !important;
+}

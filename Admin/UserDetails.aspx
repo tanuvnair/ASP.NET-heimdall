@@ -7,17 +7,18 @@
                 <h1 class="mb-5">User Details</h1>
 
                 <div class="container-fluid mb-3 rounded-3">
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Laptop %>" SelectCommand="SELECT [Username], [Email], [PhoneNumber], [Role] FROM [Users] WHERE ([UserID] = @UserID)">
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PC %>" SelectCommand="SELECT [Username], [Email], [PhoneNumber], [Role] FROM [Users] WHERE ([UserID] = @UserID)">
                         <SelectParameters>
                             <asp:QueryStringParameter Name="UserID" QueryStringField="UserID" Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
+
                     <asp:DetailsView ID="DetailsView1" runat="server" DataSourceID="SqlDataSource1" CssClass="table">
                     </asp:DetailsView>
                     <br />
                 </div>
 
-                <div class="d-flex justify-content-center gap-5">
+                <div class="d-flex gap-5">
                     <div class="card bg-success text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
                             <h1><span class="badge text-bg-light">

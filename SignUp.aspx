@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Sign Up" Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="ASP.NET_heimdall.SignUp" MasterPageFile="~/Auth.Master" %>
+﻿<%@ Page Title="Sign Up" Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="ASP.NET_heimdall.SignUp" MasterPageFile="/Auth.Master" %>
 
 <asp:Content ContentPlaceHolderID="signUpPlaceHolder" runat="server">
     <form id="form1" runat="server">
