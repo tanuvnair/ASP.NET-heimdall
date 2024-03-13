@@ -22,7 +22,7 @@
         <div class="main-container d-flex">
             <div class="sidebar" id="side_nav">
                 <div class="logo">
-                    <img src="/Assets/heimdall-1000x1000-transparent.png" class="ms-3" alt="Logo" width="125" />
+                    <a href="/Default.aspx"><img src="/Assets/heimdall-1000x1000-transparent.png" class="ms-3" alt="Logo" width="125" /></a>
                 </div>
 
                 <ul class="list-unstyled px-2 d-flex flex-column justify-content-evenly">
@@ -52,10 +52,10 @@
                                 <asp:Label ID="usernameLabel" runat="server" Text="Profile" CssClass="me-2"></asp:Label><i class="fa-fw fa-solid fa-user me-1"></i>
                             </a>
                             <ul class="my-dropdown dropdown dropdown-menu bg-black bg-gradient text-bg-light" aria-labelledby="navbarDarkDropdownMenuLink">
-                                <li class="dropdown-item">
-                                    <asp:LinkButton runat="server" Text="Change Password" OnClick="ChangePasswordButtonClick"></asp:LinkButton></li>
-                                <li class="dropdown-item">
-                                    <asp:LinkButton runat="server" Text="Sign Out" OnClick="SignOutButtonClick"></asp:LinkButton></li>
+                                <li>
+                                    <asp:LinkButton CssClass="dropdown-item" runat="server" Text="Change Password" OnClick="ChangePasswordButtonClick"></asp:LinkButton></li>
+                                <li>
+                                    <asp:LinkButton CssClass="dropdown-item" runat="server" Text="Sign Out" OnClick="SignOutButtonClick"></asp:LinkButton></li>
                             </ul>
                         </li>
                     </ul>

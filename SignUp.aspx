@@ -15,19 +15,6 @@
                 <asp:RequiredFieldValidator CssClass="card-text text-danger" ID="signUpRequiredUsername" runat="server" ErrorMessage="*The username field is required." ControlToValidate="signUpUsername" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
 
-
-            <div class="d-flex justify-content-center align-items-center gap-3">
-                <i class="fa-fw fa-solid fa-envelope"></i>
-
-                <asp:TextBox ID="signUpEmail" runat="server" TextMode="Email" CssClass="form-control mt-3 mb-2 px-3 py-3" placeholder="Email"></asp:TextBox>
-
-            </div>
-            <div class="ms-5">
-                <asp:RequiredFieldValidator CssClass="text-danger" ID="signUpRequiredEmail" runat="server" ErrorMessage="*The email field is required." ControlToValidate="signUpEmail" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator CssClass="text-danger" ID="RegularExpressionEmailValidation" runat="server" ErrorMessage="*The email is invalid." ControlToValidate="signUpEmail" ValidationExpression="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" Display="Dynamic"></asp:RegularExpressionValidator>
-            </div>
-
-
             <div class="d-flex justify-content-center align-items-center gap-3">
                 <i class="fa-fw fa-solid fa-phone"></i>
 
@@ -57,9 +44,11 @@
                 <asp:CompareValidator CssClass="text-danger" ID="ComparePassword" runat="server" ErrorMessage="*Passwords do not match." ControlToValidate="signUpPassword" ControlToCompare="signUpConfirmPassword" Display="Dynamic"></asp:CompareValidator>
             </div>
 
-            <asp:Button CssClass="btn btn-outline-light mt-4 px-4 py-2" ID="SignUpButton" runat="server" OnClick="SignUpButtonClick" Text="Sign Up" />
+            <div class="mt-3">
+                <asp:Label ID="SignUpSuccessLabel" CssClass="fw-bold text-success" runat="server" Text=""></asp:Label>
+            </div>
 
-            <h6 class="d-flex mt-5">Already have an account?<a href="Default.aspx" class="ms-2 text-decoration-none" id="signInLink">Sign In</a></h6>
+            <asp:Button CssClass="btn btn-outline-light mt-4 px-4 py-2" ID="SignUpButton" runat="server" OnClick="SignUpButtonClick" Text="Sign Up" />
         </div>
     </form>
 </asp:Content>

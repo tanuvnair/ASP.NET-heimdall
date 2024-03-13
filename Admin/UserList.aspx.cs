@@ -26,6 +26,5 @@ namespace ASP.NET_heimdall.Admin
                 e.Row.Style["cursor"] = "pointer"; // Change cursor to pointer when hovering over the row
             }
         }
-
     }
 }

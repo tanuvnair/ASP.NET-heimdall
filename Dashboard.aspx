@@ -4,7 +4,7 @@
     <div class="container-fluid p-5">
         <div class="row">
             <div class="col-sm-12">
-                <h1 class="mb-5">Welcome to User dashboard!</h1>
+                <h1 class="mb-5 fw-bold">Welcome to the User Dashboard!</h1>
                 <div class="d-flex gap-3">
                     <div class="card bg-success text-light" style="width: 18rem;">
                         <a href="#" class="card-body d-flex flex-column justify-content-center text-decoration-none gap-2 p-4">
@@ -43,12 +43,12 @@
                     </div>
                 </div>
 
-                <div class="">
-                    <asp:Panel ID="PunchInWrapper" CssClass="mt-4" runat="server">
+                <div class="mt-5">
+                    <asp:Panel ID="PunchInWrapper" CssClass="" runat="server">
                         <asp:Button CssClass="btn btn-lg btn-outline-dark d-flex mt-3" ID="PunchIn" Text="Punch In" OnClick="PunchInButtonClick" runat="server" />
                     </asp:Panel>
 
-                    <asp:Panel ID="PunchOutWrapper" CssClass="mt-4 p-4 w-auto border border-1 rounded-3 border-black" runat="server">
+                    <asp:Panel ID="PunchOutWrapper" CssClass="p-4 w-auto border border-1 rounded-3 border-black" runat="server">
                         <h3>
                             <asp:Label Text="You have punched in at" runat="server"></asp:Label>
                         </h3>
@@ -57,7 +57,7 @@
                         <asp:Button CssClass="btn btn-lg btn-outline-dark d-flex mt-3" ID="PunchOut" Text="Punch Out" OnClick="PunchOutButtonClick" runat="server" />
                     </asp:Panel>
 
-                    <asp:Panel ID="AlreadyPunchedOutWrapper" CssClass="mt-4 p-4 w-auto border border-1 rounded-3 border-black" runat="server">
+                    <asp:Panel ID="AlreadyPunchedOutWrapper" CssClass="p-4 w-auto border border-1 rounded-3 border-black" runat="server">
                         <h3>
                             <asp:Label Text="You have punched out at" runat="server"></asp:Label>
                             <asp:Label CssClass="fw-bold fs-1 ms-1" ID="PunchedOutTime" runat="server" Text="9:00"></asp:Label>

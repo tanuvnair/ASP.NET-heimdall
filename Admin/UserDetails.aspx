@@ -6,7 +6,7 @@
             <div class="col-sm-12">
                 <h1 class="mb-5">User Details</h1>
 
-                <div class="container-fluid mb-3 rounded-3">
+                <div class="mb-2">
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PC %>" SelectCommand="SELECT [Username], [Email], [PhoneNumber], [Role] FROM [Users] WHERE ([UserID] = @UserID)">
                         <SelectParameters>
                             <asp:QueryStringParameter Name="UserID" QueryStringField="UserID" Type="Int32" />

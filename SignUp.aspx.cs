@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
-using System.Net.Mail;
-using System.Configuration;
-using System.Web.UI;
 
 namespace ASP.NET_heimdall
 {
@@ -13,20 +10,52 @@ namespace ASP.NET_heimdall
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            connection.Open();
+            SignUpSuccessLabel.Text = "";
+
+            if (!IsPostBack)
+            {
+                string verificationToken = Request.QueryString["token"];
+                if (!string.IsNullOrEmpty(verificationToken))
+                {
+                    if (!IsValidToken(verificationToken))
+                    {
+                        // Token is invalid, redirect to an error page or another appropriate page
+                        Response.Redirect("InvalidToken.aspx");
+                    }
+                }
+                else
+                {
+                    // Token parameter is missing, redirect to an error page or another appropriate page
+                    Response.Redirect("MissingToken.aspx");
+                }
+            }
+        }
+
+        private bool IsValidToken(string token)
+        {
+            string query = "SELECT COUNT(*) FROM Users WHERE VerificationToken = @Token";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Token", token);
+
+                connection.Open();
+                int tokenCount = (int)command.ExecuteScalar();
+                connection.Close();
+
+                return tokenCount > 0;
+            }
         }
 
         protected void SignUpButtonClick(object sender, EventArgs e)
         {
             string username = signUpUsername.Text;
-            string email = signUpEmail.Text;
             string phoneNumber = signUpPhoneNumber.Text;
             string password = signUpPassword.Text;
             string role = "member";
             DateTime createdAt = DateTime.Now;
 
             signUpUsername.Text = "";
-            signUpEmail.Text = "";
             signUpPhoneNumber.Text = "";
             signUpPassword.Text = "";
 
@@ -42,7 +71,33 @@ namespace ASP.NET_heimdall
 
             string savedPasswordHash = Convert.ToBase64String(hashBytes);
 
-            string query = @"INSERT INTO Users (Username, Email, PhoneNumber, Password, Role, CreatedAt) VALUES (@Username, @Email, @PhoneNumber, @Password, @Role, @CreatedAt)";
+            string verificationToken = Request.QueryString["token"]; // Retrieve verification token from query string
+
+            // Retrieve email associated with the verification token from the database
+            string email = "";
+            using (SqlCommand command = new SqlCommand("SELECT Email FROM Users WHERE VerificationToken = @VerificationToken", connection))
+            {
+                command.Parameters.AddWithValue("@VerificationToken", verificationToken);
+                connection.Open();
+                email = command.ExecuteScalar()?.ToString();
+                connection.Close();
+            }
+
+            if (string.IsNullOrEmpty(email))
+            {
+                // Handle case where verification token is not found
+                Response.Redirect("MissingToken.aspx");
+                return;
+            }
+
+            string query = @"UPDATE Users 
+                     SET Username = @Username, 
+                         PhoneNumber = @PhoneNumber, 
+                         Password = @Password, 
+                         Role = @Role, 
+                         CreatedAt = @CreatedAt, 
+                         VerificationToken = NULL 
+                     WHERE Email = @Email AND VerificationToken = @VerificationToken";
 
             using (SqlCommand command = new SqlCommand(query, connection))
             {
@@ -52,10 +107,16 @@ namespace ASP.NET_heimdall
                 command.Parameters.AddWithValue("@Password", savedPasswordHash);
                 command.Parameters.AddWithValue("@Role", role);
                 command.Parameters.AddWithValue("@CreatedAt", createdAt);
+                command.Parameters.AddWithValue("@VerificationToken", verificationToken);
 
+                connection.Open();
                 command.ExecuteNonQuery();
                 connection.Close();
             }
+
+            SignUpSuccessLabel.Text = "Your account has been created.";
         }
+
+
     }
 }
